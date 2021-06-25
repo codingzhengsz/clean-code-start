@@ -27,13 +27,16 @@ public class OrderReceipt {
         output.append(Constant.RECEIPT_HEADER);
 
         // print date, bill no, customer name
-        output.append(order.getCustomerName());
-        output.append(order.getCustomerAddress());
+        output.append(generateCustomerMessage());
 
         // prints lineItems
         output.append(generateReceiptMessage());
 
         return output.toString();
+    }
+
+    private String generateCustomerMessage() {
+        return order.getCustomerName() + order.getCustomerAddress();
     }
 
     private String generateReceiptMessage() {
