@@ -19,20 +19,10 @@ public class OrderReceipt {
         return order.getCustomerName();
     }
 
-    //todo: rename -- Tom
     public String printReceipt() {
-        StringBuilder output = new StringBuilder();
-
-        // print headers
-        output.append(Constant.RECEIPT_HEADER);
-
-        // print date, bill no, customer name
-        output.append(generateCustomerMessage());
-
-        // prints lineItems
-        output.append(generateReceiptMessage());
-
-        return output.toString();
+        return Constant.RECEIPT_HEADER +
+                generateCustomerMessage() +
+                generateReceiptMessage();
     }
 
     private String generateCustomerMessage() {
