@@ -1,6 +1,9 @@
 package com.tw.academy.basic.$7_long_method;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.tw.academy.basic.$7_long_method.Constant.*;
 
 public class Order {
     String customerName;
@@ -31,5 +34,17 @@ public class Order {
 
     double getTotalAmount() {
         return getLineItems().stream().mapToDouble(LineItem::getTotalCost).sum();
+    }
+
+    String generateLineItemMsg() {
+        return getLineItems().stream().map(LineItem::toString).collect(Collectors.joining());
+    }
+
+    String generateTotalAmount() {
+        return TOTAL_AMOUNT + TAB + getTotalAmount();
+    }
+
+    String generateStateTax() {
+        return SALES_TAX + TAB + getTotalSalesTax();
     }
 }
