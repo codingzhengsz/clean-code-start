@@ -31,17 +31,15 @@ public class OrderReceipt {
         output.append(order.getCustomerAddress());
 
         // prints lineItems
-        double totalSalesTax = 0d;
         double total = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             output.append(lineItem);
 
-            // calculate sales tax @ rate of 10%
-            totalSalesTax += lineItem.getSalesTax();
-
             // calculate total amount of lineItem = price * quantity + 10 % sales tax
             total += lineItem.getTotalCost();
         }
+
+        double totalSalesTax = order.getLineItems().stream().mapToDouble(LineItem::getSalesTax).sum();
 
         // prints the state tax
         output.append("Sales Tax").append('\t').append(totalSalesTax);
