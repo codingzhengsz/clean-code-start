@@ -2,6 +2,8 @@ package com.tw.academy.basic.$7_long_method;
 
 import java.util.stream.Collectors;
 
+import static com.tw.academy.basic.$7_long_method.Constant.*;
+
 /**
  * This class is a example for bad smell;
  *
@@ -46,12 +48,12 @@ public class OrderReceipt {
 
     private void generateTotalAmount(StringBuilder output) {
         double total = order.getTotalAmount();
-        output.append("Total Amount").append('\t').append(total);
+        output.append(TOTAL_AMOUNT).append(TAB).append(total);
     }
 
     private void generateStateTax(StringBuilder output) {
         double totalSalesTax = order.getTotalSalesTax();
-        output.append("Sales Tax").append('\t').append(totalSalesTax);
+        output.append(SALES_TAX).append(TAB).append(totalSalesTax);
     }
 
 }
