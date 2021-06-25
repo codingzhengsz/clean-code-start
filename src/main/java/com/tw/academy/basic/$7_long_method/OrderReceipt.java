@@ -27,10 +27,8 @@ public class OrderReceipt {
         output.append(Constant.RECEIPT_HEADER);
 
         // print date, bill no, customer name
-//        output.append("Date - " + order.getDate();
         output.append(order.getCustomerName());
         output.append(order.getCustomerAddress());
-//        output.append(order.getCustomerLoyaltyNumber());
 
         // prints lineItems
         double totalSalesTax = 0d;
