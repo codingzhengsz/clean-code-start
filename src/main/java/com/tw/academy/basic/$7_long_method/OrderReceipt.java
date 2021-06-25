@@ -31,11 +31,15 @@ public class OrderReceipt {
         output.append(order.getCustomerAddress());
 
         // prints lineItems
-        output.append(order.generateLineItemMsg());
-        output.append(order.generateStateTax());
-        output.append(order.generateTotalAmount());
+        output.append(generateReceiptMessage());
 
         return output.toString();
+    }
+
+    private String generateReceiptMessage() {
+        return order.generateLineItemMsg() +
+                order.generateStateTax() +
+                order.generateTotalAmount();
     }
 
 }
