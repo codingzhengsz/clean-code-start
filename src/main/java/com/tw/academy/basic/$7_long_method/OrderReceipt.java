@@ -35,8 +35,8 @@ public class OrderReceipt {
             output.append(lineItem);
         }
 
-        double totalSalesTax = order.getLineItems().stream().mapToDouble(LineItem::getSalesTax).sum();
-        double total = order.getLineItems().stream().mapToDouble(LineItem::getTotalCost).sum();
+        double totalSalesTax = order.getTotalSalesTax();
+        double total = order.getTotalAmount();
 
         // prints the state tax
         output.append("Sales Tax").append('\t').append(totalSalesTax);
