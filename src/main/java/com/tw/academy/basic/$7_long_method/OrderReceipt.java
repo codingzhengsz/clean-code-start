@@ -40,7 +40,7 @@ public class OrderReceipt {
             totalSalesTax += lineItem.getSalesTax();
 
             // calculate total amount of lineItem = price * quantity + 10 % sales tax
-            total += lineItem.totalAmount() + lineItem.getSalesTax();
+            total += lineItem.getTotalCost();
         }
 
         // prints the state tax

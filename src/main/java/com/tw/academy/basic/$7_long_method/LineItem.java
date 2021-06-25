@@ -36,4 +36,8 @@ public class LineItem {
     double getSalesTax() {
         return totalAmount() * Constant.TAX_RATE;
     }
+
+    double getTotalCost() {
+        return totalAmount() + getSalesTax();
+    }
 }
