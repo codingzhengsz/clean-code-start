@@ -1,5 +1,7 @@
 package com.tw.academy.basic.$7_long_method;
 
+import java.util.stream.Collectors;
+
 /**
  * This class is a example for bad smell;
  *
@@ -31,14 +33,15 @@ public class OrderReceipt {
         output.append(order.getCustomerAddress());
 
         // prints lineItems
-        for (LineItem lineItem : order.getLineItems()) {
-            output.append(lineItem);
-        }
-
+        generateLineItemMsg(output);
         generateStateTax(output);
         generateTotalAmount(output);
 
         return output.toString();
+    }
+
+    private void generateLineItemMsg(StringBuilder output) {
+        output.append(order.getLineItems().stream().map(LineItem::toString).collect(Collectors.joining()));
     }
 
     private void generateTotalAmount(StringBuilder output) {
