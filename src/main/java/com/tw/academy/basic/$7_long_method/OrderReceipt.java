@@ -14,11 +14,6 @@ public class OrderReceipt {
         this.order = order;
     }
 
-    //Deprecated
-    public String printCustomerName() {
-        return order.getCustomerName();
-    }
-
     public String printReceipt() {
         return Constant.RECEIPT_HEADER +
                 generateCustomerMessage() +
