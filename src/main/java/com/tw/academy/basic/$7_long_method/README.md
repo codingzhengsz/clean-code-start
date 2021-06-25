@@ -3,3 +3,4 @@
 3. Magic Number, extract Magic String "======Printing Orders======\n"
 4. Dead Code, Commented statement
 5. Extract Method, Add toString method to LineItem, and replace the appended content in for loop 
+6. Inline Method

@@ -32,4 +32,8 @@ public class LineItem {
     public String toString() {
         return this.getDescription() + "\t" + this.getPrice() + "\t" + this.getQuantity() + "\t" + this.totalAmount() + "\n";
     }
+
+    double getSalesTax() {
+        return totalAmount() * Constant.TAX_RATE;
+    }
 }
