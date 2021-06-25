@@ -7,9 +7,9 @@ import static com.tw.academy.basic.$7_long_method.Constant.*;
 /**
  * This class is a example for bad smell;
  *
- * @author  Thoughtworks
+ * @author Thoughtworks
  * @version 1.0
- * @since   2018-1-1
+ * @since 2018-1-1
  */
 public class OrderReceipt {
     private Order order;
@@ -35,25 +35,23 @@ public class OrderReceipt {
         output.append(order.getCustomerAddress());
 
         // prints lineItems
-        generateLineItemMsg(output);
-        generateStateTax(output);
-        generateTotalAmount(output);
+        output.append(generateLineItemMsg());
+        output.append(generateStateTax());
+        output.append(generateTotalAmount());
 
         return output.toString();
     }
 
-    private void generateLineItemMsg(StringBuilder output) {
-        output.append(order.getLineItems().stream().map(LineItem::toString).collect(Collectors.joining()));
+    private String generateLineItemMsg() {
+        return order.getLineItems().stream().map(LineItem::toString).collect(Collectors.joining());
     }
 
-    private void generateTotalAmount(StringBuilder output) {
-        double total = order.getTotalAmount();
-        output.append(TOTAL_AMOUNT).append(TAB).append(total);
+    private String generateTotalAmount() {
+        return TOTAL_AMOUNT + TAB + order.getTotalAmount();
     }
 
-    private void generateStateTax(StringBuilder output) {
-        double totalSalesTax = order.getTotalSalesTax();
-        output.append(SALES_TAX).append(TAB).append(totalSalesTax);
+    private String generateStateTax() {
+        return SALES_TAX + TAB + order.getTotalSalesTax();
     }
 
 }
